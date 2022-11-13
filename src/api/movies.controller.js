@@ -18,6 +18,7 @@ export default class MoviesController {
     let countries = Array.isArray(req.query.countries)
       ? req.query.countries
       : Array(req.query.countries)
+    console.log(Array.isArray(req.query.countries))
     let moviesList = await MoviesDAO.getMoviesByCountry(countries)
     let response = {
       titles: moviesList,

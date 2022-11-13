@@ -26,6 +26,8 @@ describe("Connection", async () => {
       totalNumMovies: numMovies,
     } = await MoviesDAO.getMovies()
     expect(firstPage.length).toEqual(20)
-    expect(numMovies).toEqual(45993)
+    console.clear()
+    console.log(numMovies)
+    expect(numMovies).toEqual(23539)
   })
 })
