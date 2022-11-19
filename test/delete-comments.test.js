@@ -17,7 +17,7 @@ const movieId = "573a1392f29313caabcd9f92"
 const date = new Date()
 
 let comment = {
-  text: "fe-fi-fo-fum",
+  text: "fa-fe-fi-fo-fum",
   id: "",
 }
 

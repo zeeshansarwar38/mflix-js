@@ -13,12 +13,12 @@ const newUser = {
 }
 
 // The Martian
-const movieId = "573a13eff29313caabdd82f3"
+const movieId = "573a13b9f29313caabd4ddff"
 
 const date = new Date()
 
 let comment = {
-  text: "fe-fi-fo-fum",
+  text: "fa-fe-fi-fo-fum",
   id: "",
 }
 

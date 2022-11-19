@@ -274,7 +274,6 @@ export default class MoviesDAO {
       return { moviesList: [], totalNumMovies: 0 }
     }
   }
-
   /**
    * Gets a movie by its id
    * @param {string} id - The desired movie id, the _id in Mongo
@@ -295,10 +294,35 @@ export default class MoviesDAO {
       // TODO Ticket: Get Comments
       // Implement the required pipeline.
       const pipeline = [
-        {
+        {															  
           $match: {
             _id: ObjectId(id),
-          },
+          }
+        },
+        {	 
+														   
+          $lookup: {
+            from: "comments",
+            let: { id: "$_id" },
+            pipeline: [
+			   
+														   
+              { $match: { $expr: {
+						  
+                $eq: ["$movie_id", "$$id"],
+					
+				  
+              }} },
+			   
+												   
+              { $sort: { date: -1 } }
+						   
+				  
+				
+            ],
+										   
+            as: "comments"
+          }
         },
       ]
       return await movies.aggregate(pipeline).next()
@@ -316,6 +340,8 @@ export default class MoviesDAO {
       throw e
     }
   }
+
+ 
 }
 
 /**
